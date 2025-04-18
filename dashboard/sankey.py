@@ -25,7 +25,11 @@ app.layout = dbc.Container([
     html.H2("Feature ↔ Review Cluster Sankey Diagram"),
     dcc.Dropdown(
         id="filter-dropdown",
-        options=[{"label": f, "value": f} for f in sorted(sankey_df['Filter'].unique())],
+        options=[
+            {"label": f, "value": f}
+            for f in sorted(sankey_df['Filter'].unique())
+            if f not in ["All Time", "Within 2 Weeks"]
+        ],
         value=["All Time"],
         multi=True,
         placeholder="Select time period(s)..."
