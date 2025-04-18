@@ -3,9 +3,9 @@ from datetime import timedelta
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 
-features = pd.read_csv("Features1.csv", encoding="latin1")
-reviews = pd.read_csv("AppReviews.csv.gz", compression="gzip", encoding="latin1")
-labeled = pd.read_csv("Labeled_Reviews.csv", encoding='latin1')
+features = pd.read_csv("data/Features1.csv", encoding="latin1")
+reviews = pd.read_csv("data/AppReviews.csv.gz", compression="gzip", encoding="latin1")
+labeled = pd.read_csv("data/Labeled_Reviews.csv", encoding='latin1')
 
 features['Release Date'] = pd.to_datetime(features['Release Date'], errors='coerce')
 reviews['Date'] = pd.to_datetime(reviews['Date'], errors='coerce')
@@ -37,6 +37,6 @@ within_2wk = merged[merged['Within2Weeks']].groupby(['Feature Title', 'Cluster']
 within_2wk['Filter'] = 'Within 2 Weeks'
 
 sankey_data = pd.concat([all_time, by_quarter, within_2wk], ignore_index=True)
-sankey_data.to_csv("Preprocessed_Sankey_Data.csv", index=False)
-merged.to_csv("Merged_Reviews_With_Features.csv.gz", index=False, compression="gzip")
+sankey_data.to_csv("data/Preprocessed_Sankey_Data.csv", index=False)
+merged.to_csv("data/Merged_Reviews_With_Features.csv.gz", index=False, compression="gzip")
 print("Files created: Preprocessed_Sankey_Data.csv and Merged_Reviews_With_Features.csv.gz")
