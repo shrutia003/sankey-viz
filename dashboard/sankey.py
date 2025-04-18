@@ -37,6 +37,7 @@ app.layout = dbc.Container([
             html.Div(id="feature-card", children=[
                 html.H5("Feature Details", className="card-title"),
                 html.H4(id="feature-title", className="mt-2"),
+                html.P(id="feature-app", style={"fontStyle": "italic"}),
                 html.P(id="release-date"),
                 dcc.Graph(id="trend-graph", config={"displayModeBar": False}, style={"height": "200px"}),
                 html.P(id="within-2wk-summary", style={"fontWeight": "bold"})
@@ -82,6 +83,7 @@ def update_sankey(selected_filters):
 
 @app.callback(
     Output("feature-title", "children"),
+    Output("feature-app", "children"),
     Output("release-date", "children"),
     Output("within-2wk-summary", "children"),
     Output("trend-graph", "figure"),
@@ -103,13 +105,15 @@ def update_feature_card(clickData, selected_filters):
         )
 
     df = filtered[filtered["Feature Title"] == full_feature]
+    app_name = df["App"].iloc[0] if "App" in df.columns and not df.empty else "Unknown App"
     if df.empty:
         return f"No review data for {full_feature}", "", go.Figure()
 
     rel_date_row = features_df[features_df['Feature Title'] == full_feature]
     release_date = rel_date_row.iloc[0]['Release Date'] if not rel_date_row.empty else pd.NaT
+    app_name = f"App: {app_name}"
     release_str = f"Release Date: {release_date.strftime('%b %d, %Y')}" if pd.notnull(release_date) else "Release Date: Unknown"
-
+    
     total = df.shape[0]
     two_weeks = df["Within2Weeks"].sum()
     percent = (two_weeks / total) * 100 if total > 0 else 0
@@ -128,6 +132,6 @@ def update_feature_card(clickData, selected_filters):
     ))
     fig.update_layout(title="Reviews Over Time", margin=dict(t=30, l=10, r=10, b=30), height=200)
 
-    return full_feature, release_str, percent_str, fig
+    return full_feature, app_name, release_str, percent_str, fig
 
 server = app.server
