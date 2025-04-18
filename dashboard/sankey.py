@@ -3,9 +3,9 @@ import plotly.graph_objects as go
 from dash import Dash, dcc, html, Input, Output, State
 import dash_bootstrap_components as dbc
 
-sankey_df = pd.read_csv("Preprocessed_Sankey_Data.csv")
-merged_df = pd.read_csv("Merged_Reviews_With_Features.csv.gz", compression="gzip", parse_dates=["Date", "Release Date"])
-features_df = pd.read_csv("Features1.csv", encoding='latin1', parse_dates=["Release Date"])
+sankey_df = pd.read_csv("data/Preprocessed_Sankey_Data.csv")
+merged_df = pd.read_csv("data/Merged_Reviews_With_Features.csv.gz", compression="gzip", parse_dates=["Date", "Release Date"])
+features_df = pd.read_csv("data/Features1.csv", encoding='latin1', parse_dates=["Release Date"])
 
 def truncate_label(text, length=40):
     return text if len(text) <= length else text[:length] + '...'
