@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: feature-review-sankey
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python dashboard/sankey.py
