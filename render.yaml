@@ -4,4 +4,4 @@ services:
     env: python
     plan: free
     buildCommand: pip install -r requirements.txt
-    startCommand: python dashboard/sankey.py
+    startCommand: gunicorn sankey:server
