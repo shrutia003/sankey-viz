@@ -109,7 +109,7 @@ def update_feature_card(clickData, selected_filters):
     if df.empty:
         return f"No review data for {full_feature}", "", go.Figure()
     
-    app_name = df["App"].iloc[0] if "App" in df.columns else "Unknown App"
+    app_name = df["App_x"].iloc[0] if "App_x" in df.columns else "Unknown App"
     rel_date_row = features_df[features_df['Feature Title'] == full_feature]
     release_date = rel_date_row.iloc[0]['Release Date'] if not rel_date_row.empty else pd.NaT
     app_name = f"App: {app_name}"
