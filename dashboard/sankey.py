@@ -130,5 +130,4 @@ def update_feature_card(clickData, selected_filters):
 
     return full_feature, release_str, percent_str, fig
 
-if __name__ == "__main__":
-    app.run(debug=True)
+server = app.server
