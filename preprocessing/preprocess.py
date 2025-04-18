@@ -4,7 +4,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 
 features = pd.read_csv("Features1.csv", encoding="latin1")
-reviews = pd.read_csv("AppReviews.csv", encoding='latin1')
+reviews = pd.read_csv("AppReviews.csv.gz", compression="gzip", encoding="latin1")
 labeled = pd.read_csv("Labeled_Reviews.csv", encoding='latin1')
 
 features['Release Date'] = pd.to_datetime(features['Release Date'], errors='coerce')
@@ -38,5 +38,5 @@ within_2wk['Filter'] = 'Within 2 Weeks'
 
 sankey_data = pd.concat([all_time, by_quarter, within_2wk], ignore_index=True)
 sankey_data.to_csv("Preprocessed_Sankey_Data.csv", index=False)
-merged.to_csv("Merged_Reviews_With_Features.csv", index=False)
-print("Files created: Preprocessed_Sankey_Data.csv and Merged_Reviews_With_Features.csv")
+merged.to_csv("Merged_Reviews_With_Features.csv.gz", index=False, compression="gzip")
+print("Files created: Preprocessed_Sankey_Data.csv and Merged_Reviews_With_Features.csv.gz")
