@@ -9,7 +9,7 @@ Directions to Interact with the Visualization:
 
 ***Disclaimer: If the link has been inactive for some time, the visualization may take a couple of minutes to load. Please allow 1-2 minutes for the site to load.***
 
-**Step 1** - Choose a time period to view the Sankey Diagram for. Eg., if you choose 2022Q1, the diagram will show feature-review links for reviews posted in Q1 (first 3 months) of 2022.  
+**Step 1** - Click on the "Select time periods(s)" dropdown to choose a time period to view the Sankey Diagram for. Eg., if you choose 2022Q1, the diagram will show feature-review links for reviews posted in Q1 (first 3 months) of 2022.  
 
 ![Step 1 Screenshot](assets/step-1.png)
 
