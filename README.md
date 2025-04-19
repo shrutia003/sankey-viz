@@ -11,6 +11,8 @@ Directions to Interact with the Visualization:
 
 **Step 1** - Choose a time period to view the Sankey Diagram for. Eg., if you choose 2022Q1, the diagram will show feature-review links for reviews posted in Q1 (first 3 months) of 2022.  
 
+![Step 1 Screenshot](assets/step-1.png)
+
 **Step 2** - The diagram will now be visible for the specified Quarter.
   - The feature nodes (with Feature Titles if available) will be on the far left of the diagram.
   - The review clusters will be on the far right of the diagram.
@@ -18,6 +20,9 @@ Directions to Interact with the Visualization:
       - For example, there are 50 reviews total mentioning "Video Background", out of those there are 10 reviews that match to the cluster "blurry". Then the black line from feature "Video Background" to cluster "blurry" represents those 10 reviews.
 
 **Step 3** - Click on any black line to view the Feature Details Panel.
+
+![Step 3 Screenshot](assets/step-3.png)
+
   - This panel will be a details page for the clicked link
   - It will mention the feature name and feature release date (1st temporal dimension)
   - It will also show a graph for how many reviews the feature has over time, along with an approximate date of the reviews posted (2nd temporal dimension)
