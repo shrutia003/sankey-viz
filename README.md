@@ -3,8 +3,6 @@ An interactive visualization that links the traceability between released softwa
 
 ![Sankey Diagram Screenshot](assets/sankey-2.png)
 
-Interactive Visualization Link - [Interactive Sankey Diagram](https://sankey-viz.onrender.com)
-
 Directions to Interact with the Visualization:
 
 ***Disclaimer: If the link has been inactive for some time, the visualization may take a couple of minutes to load. Please allow 1-2 minutes for the site to load.***
